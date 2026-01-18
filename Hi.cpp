@@ -24,18 +24,18 @@ int strcmp_case_insensitive(const string one, const string two)
 		}
 		else if (s1 < s2) {
 			
-			return -1:
+			return -1;
 		}
 
 	}
 	//checks length after the character loop finishes running and no difference is found
 	if (one.length() == two.length()) {
 
-		return 0:
+		return 0;
 	}
 	else if (one.length() > two.length()) {
 		
-		return 1:
+		return 1;
 	}
 	else {
 		
@@ -50,15 +50,19 @@ int main() {
 
 	//tests for equal
 	assert(strcmp_case_insensitive("Hi", "hi") == 0);
-	assert(strcmp_case_insensitive("HI", "hi") == 0);
+	assert(strcmp_case_insensitive("HEY", "hey") == 0);
+	assert(strcmp_case_insensitive("", "") == 0);
 	
-	//tests for 1
-	assert(strcmp_case_insensitive("bus", "car") < 0);
-	assert(strcmp_case_insensitive("bananas", "banana") < 0);
+	//tests for less than 0
+	assert(strcmp_case_insensitive("bus", "car") < 0); //first is alphabetically earlier
+	assert(strcmp_case_insensitive("abc", "abcde") < 0); //first is shorter
+	assert(strcmp_case_insensitive("", "cat") < 0);
 
-	//tests for -1
+	//tests for greater than 0
 	assert(strcmp_case_insensitive("zebra", "tiger") > 0);
-	assert(strcmp_case_insensitive("abc", "abcde") > 0); 
+	assert(strcmp_case_insensitive("bananas", "banana") > 0);
+	assert(strcmp_case_insensitive("cat", "") > 0);
+
 
 //user input:
 	string c1;
