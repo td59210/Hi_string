@@ -1,42 +1,66 @@
 #include <iostream>
 #include <cassert>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
-int strcmp_case_insensitive(string one, string two) {
+int strcmp_case_insensitive(const string one, const string two)
+{
 
 	//setting initial values
-	int aValue1 = 0;
-	int aValue2 = 0;
 	int i = 0;
 
-	for (short s : one) //taking characters from first string
+	//start at first character, only continue if inside both strings, loop for each character
+	for (i = 0; i < one.length() && i < two.lenght(); i++) 
 	{
-		if (tolower(s) == tolower(two[i])) //comparing to first charcter in second string
-		{
-			i++; //adds 1 to i if above is true
+		char s1 = tolower(one[i]); //lowercase characters
+		char s2 = tolower(two[i]);
+
+		//loop to check characters--will stop if a differnce is found
+		if (c1 > c2) {
+
+			return 1;
+		}
+		else if (c1 < c2) {
+			
+			return -1:
 		}
 
-		aValue1 += static_cast<int>(one[i]); //add ascii to aValue
-		aValue2 += static_cast<int>(two[i]);
-
-	} //repeats with rest of characters
-
-	if (one.length() == i) //compare length of string one to i value
-	{
-		return 0;
 	}
-	else if (aValue1 > aValue2) {
-		return 1;
+	//checks length after the character loop finishes running and no difference is found
+	if (one.length() == two.length()) {
+
+		return 0:
 	}
-	else if (aValue1 < aValue2) {
+	else if (one.length() > two.length()) {
+		
+		return 1:
+	}
+	else {
+		
 		return -1;
 	}
 }
 
 
 int main() {
+
+//automatic tests
+
+	//tests for equal
+	assert(strcmp_case_insensitive("Hi", "hi") == 0);
+	assert(strcmp_case_insensitive("HI", "hi") == 0);
+	
+	//tests for 1
+	assert(strcmp_case_insensitive("bus", "car") < 0);
+	assert(strcmp_case_insensitive("bananas", "banana") < 0);
+
+	//tests for -1
+	assert(strcmp_case_insensitive("zebra", "tiger") > 0);
+	assert(strcmp_case_insensitive("abc", "abcde") > 0); 
+
+//user input:
 	string s1;
 	cout << "Hello, please enter a word. \n";
 	cin >> s1;
@@ -46,7 +70,6 @@ int main() {
 	cin >> s2;
 
 	cout << "The comparison of " << s1 << " and " << s2 << " returns " << strcmp_case_insensitive(s1, s2) << "\n";
-
 
 }
 
