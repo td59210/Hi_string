@@ -18,11 +18,11 @@ int strcmp_case_insensitive(const string one, const string two)
 		char s2 = tolower(two[i]);
 
 		//loop to check characters--will stop if a differnce is found
-		if (c1 > c2) {
+		if (s1 > s2) {
 
 			return 1;
 		}
-		else if (c1 < c2) {
+		else if (s1 < s2) {
 			
 			return -1:
 		}
@@ -61,15 +61,15 @@ int main() {
 	assert(strcmp_case_insensitive("abc", "abcde") > 0); 
 
 //user input:
-	string s1;
+	string c1;
 	cout << "Hello, please enter a word. \n";
-	cin >> s1;
+	cin >> c1;
 
-	string s2;
+	string c2;
 	cout << "Enter another word. \n";
-	cin >> s2;
+	cin >> c2;
 
-	cout << "The comparison of " << s1 << " and " << s2 << " returns " << strcmp_case_insensitive(s1, s2) << "\n";
+	cout << "The comparison of " << c1 << " and " << c2 << " returns " << strcmp_case_insensitive(c1, c2) << "\n";
 
 }
 
